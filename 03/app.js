@@ -87,6 +87,7 @@
 // console.log(count);
 
 var isMan = false;
+var isHero=true;
 if(isMan){
     console.log(1);
 }else if((!isMan) && (isHero)){
