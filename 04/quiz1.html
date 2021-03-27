@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2017108243 강성범</title>
+    <style>
+        span {
+            width: 120px;
+            height: 120px;
+            display: table-cell;
+            padding: 10px;
+        }
+
+        p {
+            display: inline;
+        }
+
+        img {
+            width: 99%;
+            height: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap"></div>
+
+    <!--이전 버튼-->
+    <button onclick="before()">이전</button>
+    <!--현재 페이지-->
+    <p>현재 페이지:<p id="current">1</p></p>
+    <!--다음 버튼-->
+    <button onclick="after()">다음</button>
+
+
+    <script>
+        
+        //시작과 끝을 정해 리스트 내부의 원하는 정보만 추출 
+        function showList(start, end, list) {
+
+            //사용자에게 보이는 세개의 이미지와 텍스트를 묶는 역할
+            //트리구조로 inner를 삭제하면 묶여져 있는 노드 삭제
+            var inner = document.createElement('div');
+            inner.setAttribute('id','inner');
+
+            for (start; start < end; start++) {
+
+                //각각의 이미지와 텍스트를 span으로 묶음
+                var span = document.createElement('span');
+                var image = document.createElement('img');
+                var text = document.createElement('p');
+                
+                //이미지, 타이틀 셋팅
+                image.setAttribute("src", todayPhoto[start].img);
+                text.innerHTML = todayPhoto[start].title;
+
+                //트리 구조에 추가
+                span.appendChild(image);
+                span.appendChild(text);
+                inner.appendChild(span)
+                wrap.appendChild(inner);
+            }
+        }
+
+        //이전 버튼 클릭 시
+        function before() {
+
+            //현재 페이지가 몇 번째 페이지인지 확인
+            var getCurrentNumber = document.querySelector("#current").innerHTML;
+
+            //첫 번째 페이지 일 때
+            if (getCurrentNumber == 1) {
+                alert("첫 번째 페이지 입니다.");
+            
+            //아닐 때
+            } else {
+                //페이지의 숫자를 바꿈
+                var getCurrent = document.querySelector("#current");
+                var transType = parseInt(getCurrentNumber);
+                var nextNumber = transType - 1
+                getCurrent.innerHTML = nextNumber;
+
+                //기존의 이미지 및 타이틀을 삭제하고 새로 셋팅
+                deleteAndShow(nextNumber);
+            }
+        }
+
+        //before과 유사
+        function after() {
+            var getCurrentNumber = document.querySelector("#current").innerHTML;
+
+            if (getCurrentNumber == 3) {
+                alert("마지막 페이지 입니다.");
+            } else {
+                var getCurrent = document.querySelector("#current");
+                var transType = parseInt(getCurrentNumber);
+                var nextNumber = transType + 1
+                getCurrent.innerHTML = nextNumber;
+                
+                deleteAndShow(nextNumber);
+                
+            }
+        }
+
+        //기존의 이미지, 타이틀 삭제 및 새로 셋팅
+        function deleteAndShow(nextNumber){
+            //기존의 이미지 및 타이틀 제거
+            var findList = document.getElementById('inner');
+            findList.parentNode.removeChild(findList);
+
+            //다음 페이지에 맞게 이미지 및 타이틀 셋팅
+
+            if(nextNumber == 1){
+                showList(0,3,todayPhoto);
+            }else if (nextNumber == 2){
+                showList(3,6,todayPhoto);
+            }else if (nextNumber == 3){
+                showList(6,8,todayPhoto);
+            }else{
+                console.log("의도하지 않은 에러 발생")
+            }
+        }
+
+        var todayPhoto = [
+            { "url": "http://media.daum.net/photo/2841", "img": "http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg", "title": "&quot;뜨면 끝장&quot; 최강 공격헬기 성능이 설마", "id": "20120516082207657" }
+            , { "url": "http://media.daum.net/entertain/photo/gallery/?gid=100320", "img": "http://icon.daumcdn.net/w/c/12/05/82876693901189319.jpeg", "title": "&#39;오늘만&#39; 필리핀 새댁 5개국어 능통 엄친딸", "id": "20120516091011626" }
+            , { "url": "http://media.daum.net/photo/4010", "img": "http://icon.daumcdn.net/w/c/12/05/82876307459008319.jpeg", "title": "[북한 결혼식 풍경] 신랑·신부 &quot;행복합니다&quot;", "id": "20120516092605081" }
+            , { "url": "http://sports.media.daum.net/general/gallery/gagsports/index.html", "img": "http://icon.daumcdn.net/w/c/12/05/81730673405131839.jpeg", "title": "&#39;내가 더 잘해&#39; 후보GK 경기 난입해 선방", "id": "20120516100608409" }
+            , { "url": "http://sports.media.daum.net/general/gallery/0516ufc/index.html", "img": "http://icon.daumcdn.net/w/c/12/05/81728759258718839.jpeg", "title": "양동이의 하이킥에 타바레스 &#39;주춤&#39;", "id": "20120516093313331" }
+            , { "url": "http://media.daum.net/entertain/photo/gallery/?gid=100539", "img": "http://icon.daumcdn.net/w/c/12/05/81728404408992839.jpeg", "title": "이승철 아내와 딸 사진 공개 &quot;사주에. .&quot;", "id": "20120516093918544" }
+            , { "url": "http://media.daum.net/photo/3899", "img": "http://icon.daumcdn.net/w/c/12/05/81728227037306839.jpeg", "title": "생후 6개월에 프랑스로 입양됐던 아이가..", "id": "20120516030614331" }
+            , { "url": "http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html", "img": "http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg", "title": "&#39;교생&#39; 김연아, 스승의날에도 인기폭발", "id": "20120516092003892" }
+        ];
+
+        //첫 3개의 이미지 show
+        showList(0, 3, todayPhoto);
+
+    </script>
+
+</body>
+
+</html>

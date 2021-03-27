@@ -81,8 +81,8 @@
 //     console.log("body");
 // });
 
-var link = document.querySelector("#link");
-link.addEventListener('click',function(event){
-    console.log(2);
-    event.preventDefault();
-});
+// var link = document.querySelector("#link");
+// link.addEventListener('click',function(event){
+//     console.log(2);
+//     event.preventDefault();
+// });
