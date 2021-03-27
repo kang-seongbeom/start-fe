@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>source</title>
+    <style>
+        #board {
+            width: 425px;
+            height: 425px;
+            text-align: center;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .black {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: black;
+        }
+
+        .white {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: white;
+        }
+
+        .red {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="board"></div>
+
+    <script>
+        
+        function setting() {
+            var k = 0;
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 4; j++) {
+
+                    if ((i % 2) == 0) {
+                        if ((j % 2) == 0) {
+                            createNode('black', k);
+                        } else {
+                            createNode('white', k);
+                        }
+                    } else {
+                        if ((j % 2) == 0) {
+                            createNode('white', k);
+                        } else {
+                            createNode('black', k);
+                        }
+                    }
+                    k++;
+                }
+            }
+        }
+
+        //color는 각 블록의 색, k는 고유 id 값
+        function createNode(color, k) {
+            //노드 생성
+            var span = document.createElement('span');
+            span.setAttribute('class', color);
+            span.setAttribute('id', k);
+
+            //블록생성시 마다 클릭 이벤트 추가
+            span.addEventListener('click', function (color) {
+                //이전에 red였던 곳을 찾아 기존으로 변경 하기 위해 위치를 찾음
+                var getBeforeRed = document.querySelector(".red");
+
+                //첫 클릭일 때(빨간 블록이 없을 때)
+                if (getBeforeRed != null) {
+
+                    //빨간 노드의 고유 id 값을 찾음
+                    var id = getBeforeRed.id;
+
+                    //고유 id값에 따른 블록 색 되돌리기
+                    if ((id == 0) || (id == 2) || (id == 5) || (id == 7) || (id == 8) || (id == 10) || (id == 13) || (id == 15)) {
+                        getBeforeRed.className = 'black';
+                    }
+                    else {                        
+                        getBeforeRed.className = 'white';
+                    }
+                }
+
+                //클릭한 곳에 빨간색으로 변경
+                span.className = "red";
+            });
+            
+            board.appendChild(span);
+        }
+
+        //초기 셋팅
+        var board = document.getElementById("board");
+        setting();
+        
+
+    </script>
+</body>
+
+</html>
