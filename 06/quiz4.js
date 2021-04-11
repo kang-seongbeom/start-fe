@@ -19,8 +19,8 @@ function moveDown(event) {
 
 function moveMove(event) {
     if (toggle) {
-        $box.style.left = x + event.clientX;
-        $box.style.top = y + event.clientY;
+        $box.style.left = x + event.clientX + 'px';
+        $box.style.top = y + event.clientY + 'px';
         console.log(event.clientX, event.clientY);
     }
 }
