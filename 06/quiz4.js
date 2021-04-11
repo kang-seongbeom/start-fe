@@ -27,5 +27,5 @@ function moveMove(event) {
 
 //이벤트 등록
 $box.addEventListener('mouseup', moveUp);
-$box.addEventListener('mousedown', moveDown);
-document.body.addEventListener('mousemove', moveMove);
+document.addEventListener('mousedown', moveDown);
+document.addEventListener('mousemove', moveMove);
