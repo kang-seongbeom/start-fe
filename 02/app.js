@@ -1,12 +1,12 @@
 //js기본 1_2
 //객체
 var image = {
-    width : 100,
-    height : 100,
-    name: '1.page'
+  width: 100,
+  height: 100,
+  name: '1.page',
 };
 
-var image1=[1,2,3,4,5,6,"a",{}];
+var image1 = [1, 2, 3, 4, 5, 6, 'a', {}];
 image1[0] = 'a';
 //console.log(image, image1)
 
@@ -33,25 +33,25 @@ var num = '2';
 //console.log('' == '0');
 //console.log(0 === '');
 
-if(true){
-    //console.log(1);
-}else{
-    //console.log(0);
+if (true) {
+  //console.log(1);
+} else {
+  //console.log(0);
 }
 
 var isHero = true;
 var isHulk = false;
 
-if(isHero){
-    //console.log(1);
+if (isHero) {
+  //console.log(1);
 }
 
-if(!isHero){
-    //console.log(0);
+if (!isHero) {
+  //console.log(0);
 }
 
-if((isHero) && (isHulk)){
-    //console.log(1);
+if (isHero && isHulk) {
+  //console.log(1);
 }
 
 var image = { width: 1, height: 2 };
@@ -61,7 +61,7 @@ var image = { width: 1, height: 2 };
 //console.log('toString' in image);
 
 //delete image.width;
-//image.width = null; 
+//image.width = null;
 
 // console.log(typeof 1);
 // console.log(typeof {});

@@ -68,8 +68,6 @@
 // b.x = 2;
 // console.log(a,b);
 
-
-
 //값이 변하지 않음
 // function byValue(count){
 //     count = count + 2;

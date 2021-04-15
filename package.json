@@ -1,0 +1,26 @@
+{
+  "name": "start-fe",
+  "version": "1.0.0",
+  "description": "고급웹개발론\r 강성범",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kang-seongbeom/start-fe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kang-seongbeom/start-fe/issues"
+  },
+  "homepage": "https://github.com/kang-seongbeom/start-fe#readme"
+}
