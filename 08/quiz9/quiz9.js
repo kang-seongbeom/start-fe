@@ -8,13 +8,13 @@ function showup(callback) {
 }
 
 //fetch
-$btn.addEventListener('click', ()=>{
+$btn.addEventListener('click', () => {
   let url = $url.value;
   fetch(url)
-  .then((res) => {
-    res.text().then(showup);
-  })
-  .catch((error)=>{
-    showup(error);
-  });
+    .then((res) => {
+      res.text().then(showup);
+    })
+    .catch((error) => {
+      showup(error);
+    });
 });

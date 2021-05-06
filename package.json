@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "고급웹개발론\r 강성범",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^4.2.4"
+  },
   "devDependencies": {
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.1",
