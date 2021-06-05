@@ -1,5 +1,5 @@
 function saveData(data) {
-  console.log(data);
+  //console.log(data);
   localStorage.setItem('data', JSON.stringify(data));
 }
 
